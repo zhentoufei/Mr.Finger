@@ -1,32 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-Hans">
-<head>
-    <meta charset="utf-8">
-    <meta name="X-UA-Compatible" content="IE=edge">
-    <title> Snow Memory | Andrew Liu</title>
-    <meta name="description" content="C++ Developer, Gopher, Pythoner, love open source.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/static/pic/favicon.png">
-    <link rel="stylesheet" href="/static/css/apollo.css">
-    <link rel="search" type="application/opensearchdescription+xml" href="http://andrewliu.in/atom.xml"
-          title="Snow Memory | Andrew Liu">
-</head>
-<body>
-<div class="wrap">
-    <header>
-        <a href="/" class="logo-link"><img src="/static/pic/favicon.png" alt="logo"></a>
-        <ul class="nav nav-list">
-            <li class="nav-list-item"><a href="/" target="_self" class="nav-list-link active">天天吹牛</a>
-            </li>
-            <li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">整理</a></li>
-            <li class="nav-list-item"><a href="http://weibo.com/dinosaurliu" target="_blank"
-                                         class="nav-list-link">非官方吐槽</a></li>
-            <li class="nav-list-item"><a href="https://github.com/Andrew-liu" target="_blank" class="nav-list-link">给她哈不</a>
-            </li>
-            <li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">关于</a></li>
-            <li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">RSS</a></li>
-        </ul>
-    </header>
+{% extends 'base.html' %}
+{% block main %}
     <main class="container">
         <ul class="home post-list">
             <li class="post-list-item">
@@ -76,13 +49,7 @@
             </li>
         </ul>
     </main>
-    <footer>
-        <div class="paginator"><a href="/page/2/" class="next">下一页</a></div>
-        <div class="copyright"><p>© 2014 - 2017 <a href="http://andrewliu.in">Andrew Liu</a>, powered by <a
-                href="https://hexo.io/" target="_blank">Hexo</a> and <a
-                href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div>
-    </footer>
-</div>
-
-</body>
-</html>
+{% endblock %}
+{% block footer_page %}
+    <div class="paginator"><a href="/page/2/" class="next">下一页</a></div>
+{% endblock %}
