@@ -21,5 +21,5 @@ import xadmin
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
     url(r'^$',TemplateView.as_view(template_name="index.html"), name="index"),
-    url(r'^archives/',TemplateView.as_view(template_name="archives.html"), name="index"),
+    url(r'^archives/',TemplateView.as_view(template_name="archives.html"), name="archives"),
 ]
