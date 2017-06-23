@@ -2,51 +2,20 @@
 {% block main %}
     <main class="container">
         <ul class="home post-list">
-            <li class="post-list-item">
-                <article class="post-block">
-                    <h2 class="post-title"><a href="/2017/06/18/Mac重装小计/" class="post-title-link">Mac重装小计</a></h2>
-                    <div class="post-info">Jun 18, 2017</div>
-                    <div class="post-content">
-                        <div class="tip"><br> 本博客采用创作<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"
-                                                        target="_blank"
-                                                        rel="external">署名-非商</a>的创作共用协议.<br></div>
+            {% for article in all_article %}
 
-                        <blockquote>
-                            <p>引用<code>code</code>引用</p>
-                        </blockquote>
-                        内容
-                    </div>
-                    <a href="/2017/06/18/Mac重装小计/" class="read-more">...阅读全文</a></article>
-            </li>
-            <li class="post-list-item">
-                <article class="post-block"><h2 class="post-title"><a href="/2017/01/17/2016成就墙完成情况总结/"
-                                                                      class="post-title-link">2016成就墙完成情况总结</a></h2>
-                    <div class="post-info">Jan 17, 2017</div>
-                    <div class="post-content"><p>本博客采用创作共用版权协议, 要求署名、非商业用途和保持一致. 转载本博客文章必须也遵循<a
-                            href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank"
-                            rel="external">署名-非商业用途-保持一致</a>的创作共用协议.</p>
-                        <p>
-                            一转眼，2016年又结束了，我的本命年就这样不知不觉溜走了，回头一看，很多年初许下的目标因为各种拖延症没有完成，心情还是有些小抑郁的。2016年算是奔波的一年吧，往返南京、北京、深圳三座城市也是挺心酸了，还不是为了生活的苟且。</p>
-                        <blockquote>
-                            <p>本文想到哪里写到哪里，毕竟我没有过目不忘的记忆</p>
-                        </blockquote>
-                        <p>2016年解锁成就：</p>
-                        <ul>
-                            <li>Zhihu.inc全体验成就达成，拿到Offer后跑路</li>
-                            <li>Baidu.inc全体验成就达成，拿到Offer后又干了一个月因其他原因不得不跑路</li>
-                            <li>Tencent.inc实习成就达成，并期待解锁终生成就奖（然而已经错过了一波企鹅18岁的全员股票）</li>
-                            <li>NJU最浪/最不务正业研二学生成就达成，一整年没回几次学校，没睡几次宿舍的床，感觉宿舍的床已经长毛了，不能再睡了。</li>
-                            <li>BAT实习成就解锁2/3，预计剩余1/3是没有机会解锁了，毕竟企业文化是很重要的，选择一个适合的企业文化才能让自己开心的浪</li>
-                            <li>iPhone
-                                7成就达成，喊了这么多年想拥有一个iPhone，终于这一次iPhone发布会剁手，虽然没有太多的外形变化，但是总是比我的辣鸡魅族不知道高到哪里去了，辣鸡魅族，毁我青春，败我钱财
-                            </li>
-                            <li>
-                                Apple三件套成就达成，还记得第一件iPad是去南大读书的时候，妈妈送我的礼物，还记得第二件Macbook是送给自己的开发礼物，用Apple的产品总是不会错的，虽然我一直鼓吹自己是个谷歌脑残粉，嗯，谷歌大法好！
-                            </li>
-                        </ul>
-                    </div>
-                    <a href="/2017/01/17/2016成就墙完成情况总结/" class="read-more">...阅读全文</a></article>
-            </li>
+                <li class="post-list-item">
+                    <article class="post-block">
+                        <h2 class="post-title"><a href="/2017/06/18/Mac重装小计/"
+                                                  class="post-title-link">{{ article.title|slice:"10" }}</a></h2>
+                        <div class="post-info">Jun 18, 2017</div>
+                        <div class="post-content">
+                            {{ article.content }}
+                        </div>
+                        <a href="/2017/06/18/Mac重装小计/" class="read-more">......阅读全文</a></article>
+                </li>
+            {% endfor %}
+
         </ul>
     </main>
 {% endblock %}
