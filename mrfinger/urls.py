@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.views.generic import TemplateView
 
+from articles.views import ArticleView
+
 import xadmin
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
-    url(r'^$',TemplateView.as_view(template_name="index.html"), name="index"),
+    url(r'^$',ArticleView.as_view(), name="index"),
     url(r'^archives/',TemplateView.as_view(template_name="archives.html"), name="archives"),
+    url(r'^detail/',TemplateView.as_view(template_name="detail.html"), name="detail"),
 ]
