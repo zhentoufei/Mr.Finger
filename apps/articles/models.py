@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from datetime import datetime
 from django.db import models
 from DjangoUeditor.models import UEditorField
 # Create your models here.
@@ -21,6 +21,7 @@ class Article(models.Model):
     tag = models.ForeignKey(Tag, blank=True, default='')  # 博客标签 可为空
     date_time = models.DateTimeField(auto_now_add = True)  #博客日期
     click_number = models.IntegerField(default=0, verbose_name=u"点击数")
+    year = models.IntegerField(default=int(datetime.now().year), verbose_name=u'年份')
     # content = models.TextField(blank = True, null = True)  #博客文章正文
     content = UEditorField(verbose_name=u'博客==内容', width=900, height=500, imagePath="courses/ueditor/",
                           filePath="courses/ueditor/",blank=True, default="")
@@ -32,3 +33,4 @@ class Article(models.Model):
 
     def __unicode__(self):
         return '{0}(类别： {1})'.format(self.title, self.tag)
+
