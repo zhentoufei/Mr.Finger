@@ -23,9 +23,11 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 SECRET_KEY = '-*nx+oec^ib$zxdr-z!wc08%bx)y!$rmjjo3de23gn!&z!4^k2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*'
+]
 
 # Application definition
 
@@ -40,7 +42,8 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'articles',
-    'DjangoUeditor'
+    'DjangoUeditor',
+    'operations'
 ]
 
 AUTH_USER_MODEL = "users.UserProfile"
@@ -146,6 +149,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT= os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
