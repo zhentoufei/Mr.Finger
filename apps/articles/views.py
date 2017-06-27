@@ -10,9 +10,11 @@ class ArticleView(View):
     获取主页的文章
     '''
     def get(self, request):
-        all_article = Article.objects.all()[:5]
+        all_article = Article.objects.all().order_by('-date_time')[:5]
+        flag = 'index'
         return render(request, 'index.html', {
-            'all_article': all_article
+            'all_article': all_article,
+            'flag':flag
         })
 
 
@@ -25,5 +27,18 @@ class ArticleDetailView(View):
         flag = 'detail'
         return render(request, 'detail.html', {
             "article":article,
+            "flag":flag
+        })
+
+
+class ArticleListView(View):
+    '''
+    获取文章列表
+    '''
+    def get(self, request):
+        article_list = Article.objects.all()
+        flag = 'list'
+        return render(request, 'archives.html',{
+            "article_list":article_list,
             "flag":flag
         })
