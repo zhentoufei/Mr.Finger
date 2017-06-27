@@ -13,16 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.views.generic import TemplateView
 
-from articles.views import ArticleView
-
+from articles.views import ArticleView, ArticleDetailView, ArticleListView
+from mrfinger.settings import STATIC_ROOT
 import xadmin
+from django.views.static import serve
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
     url(r'^$',ArticleView.as_view(), name="index"),
-    url(r'^archives/',TemplateView.as_view(template_name="archives.html"), name="archives"),
-    url(r'^detail/',TemplateView.as_view(template_name="detail.html"), name="detail"),
+    url(r'^archives/',ArticleListView.as_view(), name="archives"),
+    url(r'^detail/(?P<article_id>\d+)/$',ArticleDetailView.as_view(), name="detail"),
+    url(r'^ueditor/', include('DjangoUeditor.urls')),
+    url(r'^static/(?P<path>.*)$', serve, {"document_root": STATIC_ROOT}),
 ]
+
+
+handler404 = 'users.views.page_not_found'
+handler500 = 'users.views.page_not_found'
