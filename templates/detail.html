@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
-{% block  main %}
+{% block main %}
     <main class="container">
         <div class="post">
-            <article class="post-block"><h1 class="post-title">Mac重装小计</h1>
-                <div class="post-info">Jun 18, 2017</div>
+            <article class="post-block"><h1 class="post-title">{{ article.title }}</h1>
+                <div class="post-info">{{ article.date_time|date:"Y-m-d H:i:s" }}</div>
                 <div class="post-content">
                     {% autoescape on %}
-                        {{ course.detail | safe }}
+                        {{ article.content | safe }}
                     {% endautoescape %}
                 </div>
             </article>
         </div>
     </main>
-{% endblock %}
-{% block footer_page %}
-
-    <div class="paginator"><a
-            href="http://andrewliu.in/2017/01/17/2016%E6%88%90%E5%B0%B1%E5%A2%99%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5%E6%80%BB%E7%BB%93/"
-            class="next">下一篇</a></div>
 {% endblock %}
