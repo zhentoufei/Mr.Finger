@@ -16,9 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.views.generic import TemplateView
 
-from articles.views import ArticleView, ArticleDetailView, ArticleListView
-from users.views import UserAboutView
-# from mrfinger.settings import STATIC_ROOT, MEDIA_ROOT
+from articles.views import ArticleView, ArticleDetailView, ArticleListView, AboutView
+from mrfinger.settings import STATIC_ROOT, MEDIA_ROOT
 import xadmin
 from django.views.static import serve
 
@@ -27,10 +26,10 @@ urlpatterns = [
     url(r'^$',ArticleView.as_view(), name="index"),
     url(r'^archives/',ArticleListView.as_view(), name="archives"),
     url(r'^detail/(?P<article_id>\d+)/$',ArticleDetailView.as_view(), name="detail"),
-    url(r'^about/',UserAboutView.as_view(), name="about"),
+    url(r'^about/',AboutView.as_view(), name="about"),
     url(r'^ueditor/', include('DjangoUeditor.urls')),
-    # url(r'^static/(?P<path>.*)$', serve, {"document_root": STATIC_ROOT}),
-    # url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$', serve, {"document_root": STATIC_ROOT}),
+    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
 ]
 
 
