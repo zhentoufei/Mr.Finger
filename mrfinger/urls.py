@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.views.generic import TemplateView
 
 from articles.views import ArticleView, ArticleDetailView, ArticleListView
-from mrfinger.settings import STATIC_ROOT
+from mrfinger.settings import STATIC_ROOT, MEDIA_ROOT
 import xadmin
 from django.views.static import serve
 
@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^detail/(?P<article_id>\d+)/$',ArticleDetailView.as_view(), name="detail"),
     url(r'^ueditor/', include('DjangoUeditor.urls')),
     url(r'^static/(?P<path>.*)$', serve, {"document_root": STATIC_ROOT}),
+    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
 ]
 
 
