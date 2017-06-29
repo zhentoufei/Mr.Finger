@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from .models import Article, About
+from addresses.models import Address
 # Create your views here.
 
 
@@ -10,6 +11,12 @@ class ArticleView(View):
     获取主页的文章
     '''
     def get(self, request):
+        if 'HTTP_X_FORWARDED_FOR' in request.META:
+            addr = request.META['HTTP_X_FORWARDED_FOR']
+            add_obj = Address.objects.create(address=addr)
+        else:
+            addr = request.META['REMOTE_ADDR']
+            add_obj = Address.objects.create(address=addr)
         all_article = Article.objects.all().order_by('-date_time')[:5]
         flag = 'index'
         return render(request, 'index.html', {
