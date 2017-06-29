@@ -23,8 +23,8 @@ class Article(models.Model):
     click_number = models.IntegerField(default=0, verbose_name=u"点击数")
     year = models.IntegerField(default=int(datetime.now().year), verbose_name=u'年份')
     # content = models.TextField(blank = True, null = True)  #博客文章正文
-    content = UEditorField(verbose_name=u'博客==内容', width=900, height=500, imagePath="ueditor/%Y/%m",
-                          filePath="ueditor/%Y/%m",blank=True, default="")
+    content = UEditorField(verbose_name=u'博客==内容', width=900, height=500, imagePath="ueditor/   ",
+                          filePath="ueditor/",blank=True, default="")
 
 
     class Meta:
@@ -36,8 +36,8 @@ class Article(models.Model):
 
 
 class About(models.Model):
-    about = UEditorField(verbose_name=u'关于', width=900, height=500, imagePath="ueditor/%Y/%m",
-                         filePath="ueditor/%Y/%m", blank=True, default="")
+    about = UEditorField(verbose_name=u'关于', width=900, height=500, imagePath="ueditor/",
+                         filePath="ueditor/", blank=True, default="")
     date_time = models.DateTimeField(verbose_name=u'更新日期', default=datetime.now)  # 更改日期
 
     class Meta:
