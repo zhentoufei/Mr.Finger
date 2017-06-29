@@ -1,7 +1,7 @@
 # coding:utf-8
 from django.shortcuts import render
 from django.views.generic import View
-from .models import Article
+from .models import Article, About
 # Create your views here.
 
 
@@ -41,4 +41,17 @@ class ArticleListView(View):
         return render(request, 'archives.html',{
             "article_list":article_list,
             "flag":flag
+        })
+
+
+class AboutView(View):
+    '''
+    取出关于用户信息
+    '''
+    def get(self, request):
+        about = About.objects.all()[0]
+        flag = 'about'
+        return render(request, 'about.html',{
+            "about":about,
+            'flag':flag
         })

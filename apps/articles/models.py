@@ -34,3 +34,16 @@ class Article(models.Model):
     def __unicode__(self):
         return '{0}(类别： {1})'.format(self.title, self.tag)
 
+
+class About(models.Model):
+    about = UEditorField(verbose_name=u'关于', width=900, height=500, imagePath="ueditor/%Y/%m",
+                         filePath="ueditor/%Y/%m", blank=True, default="")
+    date_time = models.DateTimeField(verbose_name=u'更新日期', default=datetime.now)  # 更改日期
+
+    class Meta:
+        verbose_name = u"关于"
+        verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return u'关于我'
+
