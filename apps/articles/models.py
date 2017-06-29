@@ -44,6 +44,5 @@ class About(models.Model):
         verbose_name = u"关于"
         verbose_name_plural = verbose_name
 
-    def __unicode__(self):
-        return u'关于我'
+ 
 

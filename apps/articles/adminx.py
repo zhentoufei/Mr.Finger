@@ -15,6 +15,6 @@ class AboutAdmin(object):
     style_fields = {"about": "ueditor"}
 
 
-xadmin.site.register(About, AboutAdmin)
 xadmin.site.register(Tag, TagAdmin)
 xadmin.site.register(Article, ArticleAdmin)
+xadmin.site.register(About, AboutAdmin)
