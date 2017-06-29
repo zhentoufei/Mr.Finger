@@ -12,14 +12,3 @@ def page_not_found(request):
     return response
 
 
-class UserAboutView(View):
-    '''
-    取出关于用户信息
-    '''
-    def get(self, request):
-        about = UserAbout.objects.all()[0]
-        flag = 'about'
-        return render(request, 'about.html',{
-            "about":about,
-            'flag':flag
-        })

@@ -28,9 +28,8 @@ class UserProfile(AbstractUser):
 
 
 class UserAbout(models.Model):
-    about = UEditorField(verbose_name=u'博客==内容', width=900, height=500, imagePath="ueditor/%Y/%m",
+    about = UEditorField(verbose_name=u'关于', width=900, height=500, imagePath="ueditor/%Y/%m",
                          filePath="ueditor/%Y/%m", blank=True, default="")
-
     date_time = models.DateTimeField(verbose_name=u'更新日期', default=datetime.now)  # 更改日期
 
     class Meta:
