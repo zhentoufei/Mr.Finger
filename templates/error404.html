@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>404</title>
+{% extends 'base.html' %}
+{% block main %}
 
+    <h2 style="text-align: center; margin-top: 10%">欢迎做客</h2>
+    <div class="error">
+        <a style="font-size: 60px;text-align: center">404</a>
+        <a style="font-size: 60px;text-align: center;transform:rotate(-30deg);">嘿嘿嘿</a></div>
+
+{% endblock %}
+{% block custom_style %}
     <style>
-        div {
-            margin: auto auto ;
+        div.error {
+            margin: auto auto;
+            margin-bottom: 260px;
             width: 200px;
             height: 100px;
             /* Rotate div */
@@ -17,12 +22,5 @@
             -o-transform: rotate(9deg); /* Opera */
         }
     </style>
-</head>
-<body>
-<h2 style="text-align: center; margin-top: 10%">欢迎做客</h2>
-<div>
-<a style="font-size: 60px;text-align: center">404</a>
-<a style="font-size: 60px;text-align: center;transform:rotate(-30deg);">嘿嘿嘿</a></div>
+{% endblock %}
 
-</body>
-</html>
