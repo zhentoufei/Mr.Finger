@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'articles',
     'DjangoUeditor',
-    'operations'
+    'addresses',
+    'operations',
 ]
 
 AUTH_USER_MODEL = "users.UserProfile"
@@ -150,9 +151,9 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATIC_ROOT= os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static")
+# ]
 
 
 MEDIA_URL = '/media/'
