@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^archives/',ArticleListView.as_view(), name="archives"),
     url(r'^detail/(?P<article_id>\d+)/$',ArticleDetailView.as_view(), name="detail"),
     url(r'^about/',AboutView.as_view(), name="about"),
-    url('^rss/', TemplateView.as_view(template_name="rss.html"), name="rss"),
+    url('^rss/', TemplateView.as_view(), name="rss"),
     # url('^rss/', AboutView.as_view(), name="rss"),
     url(r'^ueditor/', include('DjangoUeditor.urls')),
     url(r'^static/(?P<path>.*)$', serve, {"document_root": STATIC_ROOT}),
