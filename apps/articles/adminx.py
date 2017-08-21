@@ -3,7 +3,7 @@ import xadmin
 
 
 class ArticleAdmin(object):
-    list_display = ['title', 'category', 'tag', 'date_time', 'content']
+    list_display = ['title', 'category', 'tag', 'date_time']
     style_fields = {"content":"ueditor"}
 
 
