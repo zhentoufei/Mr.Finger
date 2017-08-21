@@ -43,7 +43,7 @@ class ArticleListView(View):
     获取文章列表
     '''
     def get(self, request):
-        article_list = Article.objects.all()
+        article_list = Article.objects.all().order_by('-date_time')
         flag = 'list'
         return render(request, 'archives.html',{
             "article_list":article_list,
