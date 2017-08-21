@@ -60,5 +60,15 @@ class AboutView(View):
         flag = 'about'
         return render(request, 'about.html',{
             "about":about,
-            'flag':flag
+            "flag":flag
+        })
+
+class RSSView(View):
+    '''
+    
+    '''
+    def get(self, request):
+        flag = 'rss'
+        return render(request, 'rss.html',{
+            "flag":flag
         })
